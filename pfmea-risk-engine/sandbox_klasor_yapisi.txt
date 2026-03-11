@@ -1,0 +1,77 @@
+Folder PATH listing
+Volume serial number is 02E3-EA1D
+C:.
+-   docker-compose.yml
+-   klasor_yapisi.txt
+-   
++¦¦¦.vscode
+-       settings.json
+-       
++¦¦¦backend
+-   -   .dockerignore.txt
+-   -   Dockerfile
+-   -   nest-cli.json
+-   -   package.json
+-   -   tsconfig.build.json
+-   -   tsconfig.json
+-   -   
+-   L¦¦¦src
+-       -   app.module.ts
+-       -   health.controller.ts
+-       -   main.ts
+-       -   
+-       +¦¦¦controllers
+-       -       control-plan.controller.ts
+-       -       monitoring-controller.ts
+-       -       pfmea.controller.ts
+-       -       process-flow.controller.ts
+-       -       
+-       +¦¦¦domain
+-       -   -   domain-module.ts
+-       -   -   event-bus-service.ts
+-       -   -   
+-       -   +¦¦¦events
+-       -   -       monitoring-cycle-completed-event.ts
+-       -   -       
+-       -   L¦¦¦sagas
+-       -           occurrence-prediction-saga.ts
+-       -           
+-       +¦¦¦ppap-export
+-       -       excel-export-service.ts
+-       -       flow-pdf-service.ts
+-       -       ppap-export.module.ts
+-       -       ppap-snapshot.controller.ts
+-       -       ppap-snapshot.service.ts
+-       -       snapshot.repository.ts
+-       -       
+-       +¦¦¦stores
+-       -       control-plan.store.ts
+-       -       pfmea.store.ts
+-       -       process-flow.store.ts
+-       -       process-risk-projection.ts
+-       -       Yeni Metin Belgesi.txt
+-       -       
+-       L¦¦¦types
+-               ap.ts
+-               control-plan.ts
+-               pfmea.ts
+-               process-flow.ts
+-               
+L¦¦¦dashboard
+    -   .dockerignore.txt
+    -   Dockerfile
+    -   index.html
+    -   package.json
+    -   tsconfig.json
+    -   vite.config.ts
+    -   
+    L¦¦¦src
+        -   api.ts
+        -   App.tsx
+        -   main.tsx
+        -   
+        L¦¦¦components
+                ControlPlanView.tsx
+                PFMEASandbox.tsx
+                ProcessFlowVisualizer.tsx
+                

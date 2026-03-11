@@ -1,0 +1,50 @@
+services:
+
+  eventstore:
+    image: eventstore/eventstore:23.10.0-bookworm-slim
+    environment:
+      - EVENTSTORE_INSECURE=true
+      - EVENTSTORE_ENABLE_EXTERNAL_TCP=true
+      - EVENTSTORE_RUN_PROJECTIONS=All
+    ports:
+      - "2113:2113"
+      - "1113:1113"
+    volumes:
+      - eventstore-data:/var/lib/eventstore
+
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_PASSWORD: "password123"
+      POSTGRES_DB: riskengine
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    depends_on:
+      - postgres
+      - eventstore
+    environment:
+      EVENTSTORE_CONNECTION_STRING: "esdb://eventstore:2113?tls=false"
+      POSTGRES_HOST: "postgres"
+      POSTGRES_PASSWORD: "password123"
+      NODE_ENV: production
+      PORT: "3000"
+    ports:
+      - "3000:3000"
+
+  dashboard:
+    build: ./dashboard
+    depends_on:
+      - backend
+    environment:
+      VITE_API_BASE_URL: "http://localhost:3000"
+    ports:
+      - "5173:5173"
+
+volumes:
+  eventstore-data:
+  pg_data:

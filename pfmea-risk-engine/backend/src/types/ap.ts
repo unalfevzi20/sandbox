@@ -1,0 +1,1 @@
+export type APLevel = 'HIGH' | 'MEDIUM' | 'LOW';
